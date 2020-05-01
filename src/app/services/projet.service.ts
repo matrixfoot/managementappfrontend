@@ -16,7 +16,7 @@ export class ProjetService {
   public projet$ = new Subject<Project[]>();
 
   getProjet() {
-    this.http.get('https://backendmanagementapp.herokuapp.com/api/projet').subscribe(
+    this.http.get('https://backendmanagementappprod.herokuapp.com/api/projet').subscribe(
       (projet: Project[]) => {
         if (projet) {
           this.projet = projet;
@@ -35,7 +35,7 @@ export class ProjetService {
 
   getProjectById(id: string) {
     return new Promise((resolve, reject) => {
-      this.http.get('https://backendmanagementapp.herokuapp.com/api/projet/' + id).subscribe(
+      this.http.get('https://backendmanagementappprod.herokuapp.com/api/projet/' + id).subscribe(
         (response) => {
           resolve(response);
         },
@@ -53,7 +53,7 @@ export class ProjetService {
       const projectData = new FormData();
       projectData.append('project', JSON.stringify(project));
       projectData.append('image', image, project.title);
-      this.http.post('https://backendmanagementapp.herokuapp.com/api/projet', projectData).subscribe(
+      this.http.post('https://backendmanagementappprod.herokuapp.com/api/projet', projectData).subscribe(
         (response) => {
           resolve(response);
         },
@@ -77,7 +77,7 @@ export class ProjetService {
         projectData.append('project', JSON.stringify(project));
         projectData.append('image', image, project.title);
       }
-      this.http.put('https://backendmanagementapp.herokuapp.com/api/projet/' + id, projectData).subscribe(
+      this.http.put('https://backendmanagementappprod.herokuapp.com/api/projet/' + id, projectData).subscribe(
         (response) => {
           resolve(response);
         },
@@ -90,7 +90,7 @@ export class ProjetService {
 
   deleteProject(id: string) {
     return new Promise((resolve, reject) => {
-      this.http.delete('https://backendmanagementapp.herokuapp.com/api/projet/' + id).subscribe(
+      this.http.delete('https://backendmanagementappprod.herokuapp.com/api/projet/' + id).subscribe(
         (response) => {
           resolve(response);
         },

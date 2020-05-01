@@ -3,22 +3,22 @@
   <button class="btn btn-link" (click)="onGoBack()"><< Retour</button>
 
   <div style="border: 2px solid #1c75c8; padding: 3px; background-color: #c5ddf6;text-align: center; -moz-border-radius-topleft: 5px; -moz-border-radius-topright: 5px; -moz-border-radius-bottomright: 5px; -moz-border-radius-bottomleft: 5px;">
-    <h1>
+    
     <strong>ID//Titre du projet</strong>:{{project._id}} // {{project.title}}
-  </h1>
+  
     </div>
     <div style="padding:3px; padding-left:6px; border-left:4px solid #d0d0d0; background-color:#f1f1f1;text-align:center; margin-left:20px; font-style:italic;">
-      <strong>Informations supplémentaires</strong>:  <p>{{project.chef}}</p> <p>{{project.pmo}}</p>
-      <p>{{project.echeance}}</p>
-      <p>{{project.pole}}</p>
-      <p>{{project.structure}}</p>
+      <strong>Informations supplémentaires</strong>:  <p> <label for=""> chef du projet: </label>  {{project.chef}}</p> <p> <label for=""> PMO du projet: </label> {{project.pmo}}</p>
+      <p> <label for=""> échéance du projet: </label> {{project.echeance}}</p>
+      <p> <label for=""> Pole du projet: </label> {{project.pole}}</p>
+      <p> <label for=""> Structure contenant le projet: </label> {{project.structure}}</p>
       </div>
              
       <div style="padding:3px; border:4px inset #4cdc67;text-align:center; background-color:#4cdc67;">
-        <strong>Informations dynamiques</strong>: <p>{{project.resteafaire}}</p>
-        <p>{{project.avancement}}</p>
+        <strong>Informations dynamiques</strong>: <p> <label for=""> Reste à faire du projet: </label> {{project.resteafaire}}</p>
+        <p> <label for=""> Avancement du projet: </label> {{project.avancement}}</p>
         <p>{{project.ficheurl}}</p> <a href={{project.ficheUrl}}>Apercu de la fiche du projet</a>
-        <p>{{project.blocage}}</p>
+        <p> <label for=""> blocages ou risques du projet: </label> {{project.blocage}}</p>
         </div>
      
       

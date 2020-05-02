@@ -18,7 +18,7 @@ export class AuthService {
   createNewUser(email: string, password: string) {
     return new Promise((resolve, reject) => {
       this.http.post(
-        'https://backendmanagementappprod.herokuapp.com/api/auth/signup',
+        'https://backendmanagementapp.herokuapp.com/api/auth/signup',
         { email: email, password: password })
         .subscribe(
           () => {
@@ -42,7 +42,7 @@ export class AuthService {
   login(email: string, password: string) {
     return new Promise((resolve, reject) => {
       this.http.post(
-        'https://backendmanagementappprod.herokuapp.com/api/auth/login',
+        'https://backendmanagementapp.herokuapp.com/api/auth/login',
         { email: email, password: password })
         .subscribe(
           (authData: { token: string, userId: string }) => {

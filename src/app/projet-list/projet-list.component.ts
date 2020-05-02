@@ -46,6 +46,7 @@ export class ProjetListComponent implements OnInit, OnDestroy {
         this.router.navigate([link + '/' + id]);
           
       }
+       
   ngOnDestroy() {
     this.projetSub.unsubscribe();
     this.partSub.unsubscribe();

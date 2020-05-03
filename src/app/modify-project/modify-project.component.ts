@@ -47,7 +47,7 @@ export class ModifyProjectComponent implements OnInit {
               echeance: [project.echeance, Validators.required],
               pole: [project.pole, Validators.required],
               structure: [project.structure, Validators.required],
-              ficheUrlexterne: [project.ficheUrlexterne],
+              
               image: [project.ficheUrl, Validators.required]
             });
             this.imagePreview = project.ficheUrl;
@@ -71,7 +71,7 @@ export class ModifyProjectComponent implements OnInit {
     project.echeance = this.projectForm.get('echeance').value;
     project.pole = this.projectForm.get('pole').value;
     project.structure = this.projectForm.get('structure').value;
-    project.ficheUrlexterne = this.projectForm.get('ficheUrlexterne').value;
+    
     project.ficheUrl = '';
     project.userId = this.userId;
     this.projetService.modifyProjectWithFile(this.project._id, project, this.projectForm.get('image').value).then(

@@ -7,6 +7,7 @@ export class Project {
   blocage: string;
   description: string;
   ficheUrl: string;
+  ficheUrlexterne: string;
   pmo: string;
   echeance: string;
   pole: string;

@@ -40,6 +40,7 @@ export class NewProjectComponent implements OnInit {
       echeance: [null, Validators.required],
       pole: [null, Validators.required],
       structure: [null, Validators.required],
+      ficheUrlexterne: [null],
       image: [null, Validators.required, mimeType]
     });
     this.userId = this.auth.userId;
@@ -58,6 +59,7 @@ export class NewProjectComponent implements OnInit {
     project.echeance = this.projectForm.get('echeance').value;
     project.pole = this.projectForm.get('pole').value;
     project.structure = this.projectForm.get('structure').value;
+    project.ficheUrlexterne = this.projectForm.get('ficheUrlexterne').value;
     project.ficheUrl = '';
     project.userId = this.userId;
     this.projetService.createNewProjectWithFile(project, this.projectForm.get('image').value).then(

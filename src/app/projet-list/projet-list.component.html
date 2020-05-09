@@ -2,12 +2,13 @@
 <p class="text-center" *ngIf="projet.length <= 0 && !loading">Pas de projets !</p>
 <div class="projet-grid" *ngIf="projet.length >= 0">
   <h2 class="text-center" > Liste des projets</h2>
- 
+  
   <table id= "projettable" class="table table-striped">
-    <thead>
+    <thead class="thead-default">
     <tr>
 
-      <th>#</th>
+      
+      <th>ID</th>
       <th>Titre</th>
       
       <th>Reste à faire</th>
@@ -23,13 +24,14 @@
     </thead>
     <tbody>
       
-        <tr *ngFor="let project of projet" >
+    <tr *ngFor="let project of projet" >
+      
       <td>{{project._id}}</td>
       <td>{{project.title}}</td>
       
       <td>{{project.resteafaire}}</td>
       <td>{{project.avancement}}</td>
-      <td>{{project.ficheurl}} <a href={{project.ficheUrl}}>Aperçu fiche de projet</a></td>
+      <td>{{project.ficheurl}} <a href={{project.ficheUrl}} target="_blank">Aperçu fiche de projet</a></td>
       
       <td>{{project.pmo}}</td>
       <td>{{project.echeance}}</td>

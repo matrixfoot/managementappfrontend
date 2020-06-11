@@ -1,3 +1,4 @@
+<div class="hero-image" >
 <mat-spinner *ngIf="loading"></mat-spinner>
 <div class="col-sm-8 offset-sm-2 mt-2" *ngIf="!loading">
   <form [formGroup]="signupForm">
@@ -32,4 +33,5 @@
     <button class="btn btn-success" (click)="onSignup()" [disabled]="signupForm.invalid">Inscription</button>
   </form>
   <p>{{ errorMessage }}</p>
+</div>
 </div>

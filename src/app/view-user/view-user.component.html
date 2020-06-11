@@ -1,0 +1,18 @@
+<mat-spinner *ngIf="loading"></mat-spinner>
+<div *ngIf="!loading">
+  <button class="btn btn-link" (click)="onGoBack()"><< Retour</button>
+
+  <div style="border: 2px solid #1c75c8; padding: 3px; background-color: #c5ddf6;text-align: center; -moz-border-radius-topleft: 5px; -moz-border-radius-topright: 5px; -moz-border-radius-bottomright: 5px; -moz-border-radius-bottomleft: 5px;">
+    <h1>
+    <strong>Utilisateur</strong>: {{user.email}}
+  </h1>
+    <p><strong>Id</strong>: {{user._id}}</p>
+    <p><strong>Nom</strong>: {{user.lastname}}</p>
+    <p><strong>Prénom</strong>: {{user.firstname}}</p>  
+    <p><strong>Fonction</strong>: {{user.fonction}}</p>
+    <p><strong>Direction</strong>: {{user.direction}}</p>  
+    
+  
+  <button type="button" class="btn btn-warning" (click)="getNavigation('modify-user', user._id)">Modifier</button>
+  <button type="button" class="btn btn-danger" (click)="onDelete()">Supprimer</button>
+</div>

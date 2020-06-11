@@ -3,6 +3,8 @@ import { Subscription } from 'rxjs';
 import { StateService } from '../services/state.service';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import { User } from '../models/user.model';
+import { UserService } from '../services/users.service';
 
 @Component({
   selector: 'app-header',
@@ -15,6 +17,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   public part: number;
   public partString: string;
   public isAuth: boolean;
+  private currentuser: User[]=[];
+  
 
   private modeSub: Subscription;
   private partSub: Subscription;
@@ -22,7 +26,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   constructor(private state: StateService,
               private auth: AuthService,
-              private router: Router) { }
+              private router: Router,
+              private authuser: UserService) { }
 
   ngOnInit() {
     this.modeSub = this.state.mode$.subscribe(
@@ -51,13 +56,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
         this.isAuth = auth;
       }
     );
+    
+    
   }
 
   onLogout() {
     this.auth.logout();
     this.router.navigate(['/' + this.partString + '/auth/login']);
   }
-
+  
   onBackToParts() {
     this.router.navigate(['/default']);
   }

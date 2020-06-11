@@ -21,6 +21,10 @@ import { ProjetListComponent } from './projet-list/projet-list.component';
 import { NewProjectComponent } from './new-project/new-project.component';
 import { ViewProjectComponent } from './view-project/view-project.component';
 import { ModifyProjectComponent } from './modify-project/modify-project.component';
+import { UserslistComponent } from './users-list/users-list.component';
+import { ViewUserComponent } from './view-user/view-user.component';
+import { ModifyUserComponent } from './modify-user/modify-user.component';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +40,11 @@ import { ModifyProjectComponent } from './modify-project/modify-project.componen
     ProjetListComponent,
     NewProjectComponent,
     ViewProjectComponent,
-    ModifyProjectComponent
+    ModifyProjectComponent,
+    UserslistComponent,
+    ViewUserComponent,
+    ModifyUserComponent,
+    
     
   ],
   imports: [

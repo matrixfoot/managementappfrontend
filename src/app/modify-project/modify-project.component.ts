@@ -4,7 +4,7 @@ import { StateService } from '../services/state.service';
 import { ProjetService } from '../services/projet.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
-import { mimeType } from '../part-four/mime-type.validator';
+
 import { Project } from '../models/Project.model';
 @Component({
   selector: 'app-modify-project',
@@ -32,11 +32,13 @@ export class ModifyProjectComponent implements OnInit {
     this.loading = true;
     this.state.mode$.next('form');
     this.userId = this.auth.userId;
+
     this.route.params.subscribe(
       (params) => {
         this.projetService.getProjectById(params.id).then(
           (project: Project) => {
             this.project = project;
+            console.log(project);
             this.projectForm = this.formBuilder.group({
               title: [project.title, Validators.required],
               chef: [project.chef, Validators.required],
@@ -47,15 +49,18 @@ export class ModifyProjectComponent implements OnInit {
               echeance: [project.echeance, Validators.required],
               pole: [project.pole, Validators.required],
               structure: [project.structure, Validators.required],
+              file: [project.ficheUrl, Validators.required]
               
-              image: [project.ficheUrl, Validators.required]
             });
             this.imagePreview = project.ficheUrl;
             this.loading = false;
+            
+            
           }
         );
       }
     );
+    
   }
 
   onSubmit() {
@@ -71,10 +76,11 @@ export class ModifyProjectComponent implements OnInit {
     project.echeance = this.projectForm.get('echeance').value;
     project.pole = this.projectForm.get('pole').value;
     project.structure = this.projectForm.get('structure').value;
-    
     project.ficheUrl = '';
+    
+    
     project.userId = this.userId;
-    this.projetService.modifyProjectWithFile(this.project._id, project, this.projectForm.get('image').value).then(
+    this.projetService.modifyProjectWithFile(this.project._id, project, this.projectForm.get('file').value).then(
       () => {
         this.projectForm.reset();
         this.loading = false;
@@ -83,6 +89,7 @@ export class ModifyProjectComponent implements OnInit {
       (error) => {
         this.loading = false;
         this.errorMessage = error.message;
+        this.router.navigate(['/all-projet']);
       }
     );
   }
@@ -90,11 +97,11 @@ export class ModifyProjectComponent implements OnInit {
   onImagePick(event: Event) {
     const file = (event.target as HTMLInputElement).files[0];
     console.log(file);
-    this.projectForm.get('image').patchValue(file);
-    this.projectForm.get('image').updateValueAndValidity();
+    this.projectForm.get('file').patchValue(file);
+    this.projectForm.get('file').updateValueAndValidity();
     const reader = new FileReader();
     reader.onload = () => {
-      if (this.projectForm.get('image').valid) {
+      if (this.projectForm.get('file').valid) {
         this.imagePreview = reader.result as string;
       } else {
         this.imagePreview = null;

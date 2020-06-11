@@ -70,8 +70,14 @@ export class ViewProjectComponent implements OnInit {
         
         this.router.navigate(['/all-projet']);
          
+      },
+      (error) => {
+        this.loading = false;
+        
+        this.router.navigate(['/all-projet']);
       }
     );
+    
   }
 
   ngOnDestroy() {

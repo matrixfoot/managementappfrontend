@@ -14,7 +14,7 @@ export class UserService {
     public users$ = new Subject<User[]>();
     
     getAll() {
-        this.http.get('http://backendmanagementapp.herokuapp.com/api/users').subscribe(
+        this.http.get('https://backendmanagementapp.herokuapp.com/api/users').subscribe(
           (users: User[]) => {
             if (users) {
               this.users = users;
@@ -37,7 +37,7 @@ export class UserService {
         return new Promise((resolve, reject) => {
           
 
-          this.http.get('http://backendmanagementapp.herokuapp.com/api/users/' + id).subscribe(
+          this.http.get('https://backendmanagementapp.herokuapp.com/api/users/' + id).subscribe(
             (response) => {
               resolve(response);
             },
@@ -53,7 +53,7 @@ export class UserService {
           
             
           
-          this.http.put('http://backendmanagementapp.herokuapp.com/api/users/' + id, user).subscribe(
+          this.http.put('https://backendmanagementapp.herokuapp.com/api/users/' + id, user).subscribe(
             (response) => {
               resolve(response);
             },
@@ -66,7 +66,7 @@ export class UserService {
    
     deleteUserById(id: string) {
       return new Promise((resolve, reject) => {
-        this.http.delete('http://backendmanagementapp.herokuapp.com/api/users/'+ id).subscribe(
+        this.http.delete('https://backendmanagementapp.herokuapp.com/api/users/'+ id).subscribe(
           (response) => {
             resolve(response);
           },

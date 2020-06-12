@@ -8,18 +8,18 @@
   </h1>
     </div>
     <div style="padding:3px; padding-left:6px; border-left:4px solid #d0d0d0; background-color:#f1f1f1;text-align:center; margin-left:20px; font-style:italic;">
-      <strong>Informations supplémentaires</strong>:  <p>{{project.chef}}</p> <p>{{project.pmo}}</p>
-      <p>{{project.echeance}}</p>
-      <p>{{project.pole}}</p>
-      <p>{{project.structure}}</p>
+      <strong>Informations supplémentaires</strong>:  <p>chef du projet:  {{project.chef}}</p> <p>PMO du projet: {{project.pmo}}</p>
+      <p>Echéance du projet:  {{project.echeance}}</p>
+      <p>Pôle du projet:  {{project.pole}}</p>
+      <p>Structure du projet:  {{project.structure}}</p>
       </div>
              
       <div style="padding:3px; border:4px inset #4cb3dc;text-align:center; background-color:#a1c2f3;">
-        <strong>Informations dynamiques</strong>: <p>{{project.resteafaire}}</p>
-        <p>{{project.avancement}}</p>
-        <p>{{project.ficheurl}}</p> <a href={{project.ficheUrl}} target="_blank">Apercu de la fiche du projet</a>
+        <strong>Informations dynamiques</strong>: <p>Reste à faire:  {{project.resteafaire}}</p>
+        <p>Avancement du projet:  {{project.avancement}}</p>
+        <p>Fiche du projet:  {{project.ficheurl}} <a href={{project.ficheUrl}} target="_blank">Apercu de la fiche du projet</a></p>
         
-        <p>{{project.blocage}}</p>
+        <p>Blocages ou Risques:  {{project.blocage}}</p>
         </div>
      
       

@@ -61,7 +61,7 @@ export class NewProjectComponent implements OnInit {
     project.structure = this.projectForm.get('structure').value;
     
     project.ficheUrl = '';
-    project.userId = this.userId;
+    
     this.projetService.createNewProjectWithFile(project, this.projectForm.get('image').value).then(
       () => {
         this.projectForm.reset();

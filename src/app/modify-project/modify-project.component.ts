@@ -79,7 +79,7 @@ export class ModifyProjectComponent implements OnInit {
     project.ficheUrl = '';
     
     
-    project.userId = this.userId;
+    
     this.projetService.modifyProjectWithFile(this.project._id, project, this.projectForm.get('file').value).then(
       () => {
         this.projectForm.reset();

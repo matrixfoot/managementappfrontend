@@ -12,5 +12,5 @@ export class Project {
   echeance: string;
   pole: string;
   structure: string;
-  userId: string;
+  
 }

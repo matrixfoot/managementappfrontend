@@ -1,6 +1,6 @@
 <mat-spinner *ngIf="loading"></mat-spinner>
 
-<p class="text-center" style="color: red;" *ngIf="users.length <= 0 ">You don't have enough permission to perform this action!!</p>
+<p class="text-center" style="color: red;" *ngIf="users.length <= 0 ">en cas de problème de visualisation, merci de contacter votre PMO ou la direction stratégie et pilotage</p>
 <div class="users-grid" >
   <h2 class="text-center" > Liste des utilisateurs</h2>
   
@@ -10,6 +10,7 @@
     <tr>
 
       <th>#</th>
+      <th>Email</th>
       <th>Firstname</th>
       
       <th>Lastname</th>
@@ -25,6 +26,7 @@
     <tr *ngFor="let user of users">
 
       <td>{{user._id}}</td>
+      <td>{{user.email}}</td>
       <td>{{user.firstname}}</td>
       
 

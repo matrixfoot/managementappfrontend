@@ -11,8 +11,8 @@ export class AuthService {
   isAuth$ = new BehaviorSubject<boolean>(false);
   token: string;
   userId: string;
-  userrole:string;
   
+  public userrole$ = new BehaviorSubject<string>('');
   
 
   constructor(private router: Router,
@@ -51,8 +51,11 @@ export class AuthService {
           (authData: {  role:string,accessToken: string, userId: string }) => {
             this.token = authData.accessToken;
             this.userId = authData.userId;
-            this.userrole=authData.role;
+            this.userrole$.next(authData.role);
+            
+  
             this.isAuth$.next(true);
+            
             resolve();
           },
           (error) => {

@@ -17,10 +17,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
   public part: number;
   public partString: string;
   public isAuth: boolean;
+  public currentrole:string;
   private currentuser: User[]=[];
   
 
   private modeSub: Subscription;
+  private currentrolesub: Subscription;
   private partSub: Subscription;
   private isAuthSub: Subscription;
 
@@ -33,6 +35,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.modeSub = this.state.mode$.subscribe(
       (mode) => {
         this.mode = mode;
+      }
+    );
+    this.currentrolesub = this.auth.userrole$.subscribe(
+      (currentrole) => {
+        this.currentrole = currentrole;
       }
     );
     this.partSub = this.state.part$.subscribe(
@@ -54,6 +61,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.isAuthSub = this.auth.isAuth$.subscribe(
       (auth) => {
         this.isAuth = auth;
+       
       }
     );
     

@@ -37,6 +37,7 @@ export class UserslistComponent implements OnInit {
                 );
                
                 this.UserService.getAll();
+                this.loading=false;
               }
               
   

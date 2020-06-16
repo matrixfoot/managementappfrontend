@@ -4,6 +4,8 @@ import { ProjetService } from '../services/projet.service';
 import { Subscription } from 'rxjs';
 import { Project } from '../models/Project.model';
 import { Router } from '@angular/router';
+import { UserService } from '../services/users.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-projet-list',
@@ -15,13 +17,14 @@ export class ProjetListComponent implements OnInit, OnDestroy {
   public projet: Project[] = [];
   public part: number;
   public loading: boolean;
-
+  public currentrole:string;
   private projetSub: Subscription;
   private partSub: Subscription;
-
+  private currentrolesub: Subscription;
   constructor(private state: StateService,
               private projetService: ProjetService,
-              private router: Router) { }
+              private router: Router,
+              private auth:AuthService) { }
 
   ngOnInit() {
     this.loading = true;
@@ -37,7 +40,13 @@ export class ProjetListComponent implements OnInit, OnDestroy {
         this.part = part;
       }
     );
+    this.currentrolesub = this.auth.userrole$.subscribe(
+      (currentrole) => {
+        this.currentrole = currentrole;
+      }
+    );
     this.projetService.getProjet();
+    this.loading = false;
   }
 
   

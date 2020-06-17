@@ -5,10 +5,10 @@
   
   <ul class="header-navigation">
     <li class="header-navigation-item" *ngIf="part >= 3 && isAuth">
-      <a class="header-link" routerLink="/all-projet" routerLinkActive="active">Liste des projets</a>
+      <a class="header-link" routerLink="/all-projet" routerLinkActive="active">Référentiel de projets</a>
       
     </li>
-    <li class="header-navigation-item" *ngIf="part >= 3 && isAuth">
+    <li class="header-navigation-item" *ngIf="part >= 3 && isAuth && currentrole === 'admin'">
       <a class="header-link" routerLink="/users-list" routerLinkActive="active">Liste des utilisateurs</a>
     </li>
     

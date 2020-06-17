@@ -1,33 +1,134 @@
+<div class="back-image"> 
 <mat-spinner *ngIf="loading"></mat-spinner>
 <div *ngIf="!loading">
   <button class="btn btn-link" (click)="onGoBack()"><< Retour</button>
 
-  <div style="border: 2px solid #1c75c8; padding: 3px; background-color: #c5ddf6;text-align: center; -moz-border-radius-topleft: 5px; -moz-border-radius-topright: 5px; -moz-border-radius-bottomright: 5px; -moz-border-radius-bottomleft: 5px;">
-    <h1>
-    <strong>Titre du projet</strong>:{{project.title}}
-  </h1>
-    </div>
-    <div style="padding:3px; padding-left:6px; border-left:4px solid #d0d0d0; background-color:#f1f1f1;text-align:center; margin-left:20px; font-style:italic;">
-      <strong>Informations supplémentaires</strong>:  <p>chef du projet:  {{project.chef}}</p> <p>PMO du projet: {{project.pmo}}</p>
+  
+    <div><h1>
+      <div style="background-color: white ;
+      text-align: center;
+      margin: auto;
+    width: 60%;
+    border: 3px solid lightgrey;
+    padding: 10px;">Titre du projet</div>
+    <div style="background-color: lightskyblue;
+    color: white;
+    text-align: center;
+    margin: auto;
+  width: 60%;
+  border: 3px solid lightgrey;
+  padding: 10px;"> {{project.title}}</div>
+  </h1></div>
+    <div >
+    <h2><div style="background-color: white;
+    color: black;
+    text-align: center;
+    position: relative;
+    margin: auto;
+  width: 40%;
+  border: 3px solid lightpink;
+  padding: 10px;">
+      Informations supplémentaires </div> </h2>
+      <div style="background-color: rgba(167, 194, 211, 0.774);
+      color: black;
+      text-align: center;
+    
+      margin: auto;
+    width: 40%;
+    border: 3px solid rgb(62, 63, 60);
+    padding: 10px;">
+      <p>chef du projet:  {{project.chef}}</p> 
+      <p>PMO du projet: {{project.pmo}}</p>
       <p>Echéance du projet:  {{project.echeance}}</p>
       <p>Pôle du projet:  {{project.pole}}</p>
       <p>Structure du projet:  {{project.structure}}</p>
-      </div>
-             
-      <div style="padding:3px; border:4px inset #4cb3dc;text-align:center; background-color:#a1c2f3;">
-        <strong>Informations dynamiques</strong>: <p>Reste à faire:  {{project.resteafaire}}</p>
-        <p>Avancement du projet:  {{project.avancement}}</p>
-        <p>Fiche du projet:  {{project.ficheurl}} <a href={{project.ficheUrl}} target="_blank">Apercu de la fiche du projet</a></p>
+      </div></div>
+       <div>     
+      <h2><div style="background-color: white;
+      color: black;
+      position: relative;
+      text-align: center;
+      
+      margin: auto;
+    width: 40%;
+    border: 3px solid lightpink;
+    padding: 10px;">
+        Reste à faire du projet </div> </h2>
         
-        <p>Blocages ou Risques:  {{project.blocage}}</p>
-        </div>
+        <div style="background-color: rgba(167, 194, 211, 0.774);
+      color: black;
+      text-align: center;
+    position: relative;
+    margin: auto;
+    width: 40%;
+    border: 3px solid rgb(62, 63, 60);
+    padding: 10px;">  {{project.resteafaire}}
+      </div> 
+    </div>
+    <div><h2><div style="background-color: white;
+      color: black;
+      position: relative;
+      text-align: center;
+      
+      margin: auto;
+    width: 40%;
+    border: 3px solid lightpink;
+    padding: 10px;">Avancement du projet</div></h2><div style="background-color: rgba(167, 194, 211, 0.774);
+      color: black;
+      text-align: center;
+    position: relative;
+    margin: auto;
+    width: 40%;
+    border: 3px solid rgb(62, 63, 60);
+    padding: 10px;">{{project.avancement}}</div></div>
+     <div><h2><div style="background-color: white;
+      color: black;
+      position: relative;
+      text-align: center;
+      
+      margin: auto;
+    width: 40%;
+    border: 3px solid lightpink;
+    padding: 10px;">Fiche du projet</div></h2><div style="background-color: rgba(167, 194, 211, 0.774);
+      color: black;
+      text-align: center;
+    position: relative;
+    margin: auto;
+    width: 40%;
+    border: 3px solid rgb(62, 63, 60);
+    padding: 10px;">{{project.ficheurl}} <a href={{project.ficheUrl}} target="_blank">Apercu de la fiche du projet</a></div></div>   
+       <div><h2><div style="background-color: white;
+        color: black;
+        position: relative;
+        text-align: center;
+        
+        margin: auto;
+      width: 40%;
+      border: 3px solid lightpink;
+      padding: 10px;">Blocages ou Risques</div></h2><div style="background-color: rgba(167, 194, 211, 0.774);
+      color: black;
+      text-align: center;
+    position: relative;
+    margin: auto;
+    width: 40%;
+    border: 3px solid rgb(62, 63, 60);
+    padding: 10px;">{{project.blocage}}</div></div>
+        
+        
+        
      
       
      
       
     
   
-  <button type="button" class="btn btn-warning" (click)="getNavigation('update', project._id)">Modifier</button>
-  <button type="button" class="btn btn-danger" (click)="onDelete()">Supprimer</button>
+  <div style="position: relative;
+  text-align: center;
+  
+  margin: auto;"><button style="width: fit-content; position: relative;margin: auto;"type="button" class="btn btn-warning" (click)="getNavigation('update', project._id)">Modifier</button></div>
+  <div style="position: relative;
+  text-align: center;
+  
+  margin: auto;"><button style="width: fit-content; position: relative;margin: auto;"type="button" class="btn btn-danger" (click)="onDelete()">Supprimer</button></div>
 </div>
-      
+</div>

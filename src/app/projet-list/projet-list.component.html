@@ -4,15 +4,15 @@
 <div class="projet-grid" *ngIf="projet.length >= 0">
   <h2 class="text-center" > Liste des projets </h2>
   
-  <table id= "projettable" class="table table-striped">
+  <table id= "projettable" class="table table-striped" style="text-align: center" >
     <thead class="thead-default">
     <tr>
 
       
-      <th>ID</th>
-      <th>Titre</th>
       
-      <th>Reste à faire</th>
+      <th>Titre du projet</th>
+      
+      
       <th>Avancement</th>
       <th>Apercu de la fiche du projet</th>
       
@@ -27,15 +27,15 @@
       
     <tr *ngFor="let project of projet" >
       
-      <td>{{project._id}}</td>
-      <td>{{project.title}}</td>
       
-      <td>{{project.resteafaire}}</td>
+      <td style="font-weight: bold">{{project.title}} </td>
+      
+      
       <td>{{project.avancement}}</td>
       <td>{{project.ficheurl}} <a href={{project.ficheUrl}} target="_blank">Aperçu fiche de projet</a></td>
       
       <td>{{project.pmo}}</td>
-      <td>{{project.echeance}}</td>
+      <td style="color: red">{{project.echeance}}</td>
       
       <td>  <button type="button" class="btn btn-success" (click)="getNavigation('view', project._id)">View</button></td>
       

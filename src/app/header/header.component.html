@@ -1,37 +1,24 @@
-<header>
-  <h1 class="header-title">
-    Menu Principal
-  </h1>
-  
-  <ul class="header-navigation">
-    <li class="header-navigation-item" *ngIf="part >= 3 && isAuth">
-      <a class="header-link" routerLink="/all-projet" routerLinkActive="active">Référentiel de projets</a>
-      
-    </li>
-    <li class="header-navigation-item" *ngIf="part >= 3 && isAuth && currentrole === 'admin'">
-      <a class="header-link" routerLink="/users-list" routerLinkActive="active">Liste des utilisateurs</a>
-    </li>
-    
-    
-    <li class="header-navigation-item" *ngIf="part >= 3 && isAuth && currentrole === 'admin'">
-      <a class="header-link" routerLink="/new-project" routerLinkActive="active">Nouveau projet</a>
-    </li>
-    <li class="header-navigation-item" *ngIf="(part >= 3 && isAuth)">
-      <a class="header-link" style="cursor: pointer" (click)="onLogout()">DECONNEXION</a>
-    </li>
-    <li class="header-navigation-item" *ngIf="(part >= 3 && !isAuth)">
-      <a class="header-link" routerLink="/auth/login" routerLinkActive="active">CONNEXION</a>
-    </li>
-    <li class="header-navigation-item" *ngIf="(part >= 3 && !isAuth)">
-      <a class="header-link" routerLink="/auth/signup" routerLinkActive="active">INSCRIPTION</a>
-    </li>
-  </ul>
-  <ul class="header-navigation nav-end">
-    
-  </ul>
-</header>
-<div class="hero-image" *ngIf="mode === 'list'">
-  <h2 class="hero-text">
-    
-  </h2>
+<header style="display: flex; color: black; background-repeat: no-repeat; background-position: center center; background-size: cover; opacity: 1; height: 105px; border-style: solid; border-color: #000000;"> 
+    <h1 class="header-title" style="width: 254px; margin: 0; background-position: center center; background-size: cover; padding: 0; background-color: #060505; background-repeat: no-repeat; background-image: url('../../assets/logoblancmaprojects.png'); min-width: 155px; height: 100px;"> </h1> 
+    <ul class="header-navigation" style="display: flex; height: 39px; align-items: center; justify-content: center; list-style-type: square; color: black; margin-left: 243px; margin-top: 33px;"> 
+        <li class="header-navigation-item" *ngIf="part >= 3 && isAuth" style="padding-right: 40px; width: 201px; color: black;"> 
+            <a class="header-link" routerLink="/all-projet" routerLinkActive="active" style="color: black;">Référentiel de projets</a> 
+        </li>         
+        <li class="header-navigation-item" *ngIf="part >= 3 && isAuth && currentrole === 'admin'" style="color: black; width: 196px;"> 
+            <a class="header-link" routerLink="/users-list" routerLinkActive="active" style="padding-right: 40px; width: -9px; color: black;">Liste des utilisateurs</a> 
+        </li>         
+        <li class="header-navigation-item" *ngIf="part >= 3 && isAuth && currentrole === 'admin'" style="width: 158px; color: black;"> 
+            <a class="header-link" routerLink="/new-project" routerLinkActive="active" style="padding-right: 40px; color: black;">Nouveau projet</a> 
+        </li>         
+        <li class="header-navigation-item" *ngIf="(part >= 3 && !isAuth)" style="color: black;"> 
+            <a class="header-link" routerLink="/auth/login" routerLinkActive="active" style="padding-right: 40px; color: black;">CONNEXION</a> 
+        </li>         
+        <li class="header-navigation-item" *ngIf="(part >= 3 && !isAuth)" style="color: black;"> 
+            <a class="header-link" routerLink="/auth/signup" routerLinkActive="active" style="padding-right: 40px; color: black;">INSCRIPTION</a> 
+        </li>         
+    </ul>     
+    <a class="header-link" style="cursor: pointer; margin-left: 116px; display: inline-flex; justify-content: center; align-self: center; position: relative; margin-top: 13px; color: black;" (click)="onLogout()" *ngIf="(part >= 3 && isAuth)"> <div style="height: 15px; width: 29px; background-image: url('../../assets/deconnexion%20logo.jpg'); background-repeat: no-repeat; background-position: center center; background-size: cover;"></div>DECONNEXION </a>
+</header> 
+<div class="hero-image" *ngIf="mode === 'list'"> 
+    <h2 class="hero-text"> </h2> 
 </div>

@@ -1,53 +1,48 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { PartThreeComponent } from './part-three/part-three.component';
-import { PartFourComponent } from './part-four/part-four.component';
-import { DefaultComponent } from './default/default.component';
 
-import { LoginComponent } from './part-three/auth/login/login.component';
-import { SignupComponent } from './part-three/auth/signup/signup.component';
+
+
+
 import { AuthGuard } from './services/auth-guard.service';
-import { ProjetListComponent } from './projet-list/projet-list.component';
-import { NewProjectComponent } from './new-project/new-project.component';
-import { ViewProjectComponent } from './view-project/view-project.component';
-import { ModifyProjectComponent } from './modify-project/modify-project.component';
-import { UserslistComponent } from './users-list/users-list.component';
-import { ViewUserComponent } from './view-user/view-user.component';
-import { ModifyUserComponent } from './modify-user/modify-user.component';
+import { ContactComponent } from './home/contact/contact.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { WhoComponent } from './who/who.component';
+import { WhyComponent } from './why/why.component';
 const routes: Routes = [
   
-  { path: 'part-three', component: PartThreeComponent,
-    children: [
-      
-      { path: 'auth/login', component: LoginComponent },
-      { path: 'auth/signup', component: SignupComponent },
-      { path: '', pathMatch: 'full', redirectTo: 'auth/login' },
-      { path: '**', redirectTo: 'all-projet' }
-    ]
-  },
-  { path: 'part-four', component: PartFourComponent,
-    children: [
-     
-      { path: 'auth/login', component: LoginComponent },
-      { path: 'auth/signup', component: SignupComponent },
-      { path: '', pathMatch: 'full', redirectTo: 'auth/login' },
-      { path: '**', redirectTo: 'all-projet' }
-    ]
-  },
-  { path: 'default', component: DefaultComponent },
-  { path: 'auth/login', component: LoginComponent },
-  { path: 'auth/signup', component: SignupComponent },
-  { path: 'all-projet', component: ProjetListComponent, canActivate: [AuthGuard] },
-  { path: 'users-list', component: UserslistComponent, canActivate: [AuthGuard] },
-  { path: 'view-user/:id', component: ViewUserComponent, canActivate: [AuthGuard] },
-  { path: 'modify-user/:id', component: ModifyUserComponent, canActivate: [AuthGuard] },
-  { path: 'new-project', component: NewProjectComponent, canActivate: [AuthGuard] },
-  { path: 'view/:id', component: ViewProjectComponent, canActivate: [AuthGuard] },
-  { path: 'update/:id', component: ModifyProjectComponent, canActivate: [AuthGuard] },
-  { path: '', pathMatch: 'full', component: DefaultComponent },
-  { path: '**', redirectTo: '' }
-];
+   
+    
+  { path: 'login', component: LoginComponent,
+    
+},
+{ path: 'home', component: HomeComponent,
+    
+},
+{ path: 'signup', component: SignupComponent,
+    
+},
+{ path: 'login/signup', component: SignupComponent,
+    
+},
+{ path: 'why', component: WhyComponent,
+    
+},
+{ path: 'who', component: WhoComponent,
+    
+},
+
+
+{
+  path: '', component: HomeComponent,
+  children: [
+    {path: 'home/contact', component :ContactComponent},
+  ]
+}
+]
 
 @NgModule({
   imports: [

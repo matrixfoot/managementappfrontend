@@ -18,11 +18,11 @@ export class AuthService {
   constructor(private router: Router,
               private http: HttpClient) {}
 
-  createNewUser(email: string, password: string, firstname:string, lastname:string,direction:string, fonction:string, role:string) {
-    return new Promise((resolve, reject) => {
+  createNewUser(email:string, password:string,  firstname:string,lastname:string,fonction:string,secteur:string,civilite:string,raisonsociale:string,nomsociete:string,clientcode: string,role:string) {
+    return new Promise<void>((resolve, reject) => {
       this.http.post(
-        'https://backendmanagementapp.herokuapp.com/api/auth/signup',
-        { email: email, password: password, firstname:firstname, lastname:lastname,direction:direction, fonction:fonction, role:role })
+        'https://cvm-backend.herokuapp.com/api/signup',
+        { email: email, password: password, firstname:firstname, lastname:lastname,fonction:fonction,secteur:secteur,civilite:civilite,raisonsociale:raisonsociale,nomsociete:nomsociete,clientcode:clientcode, role:role })
         .subscribe(
           () => {
             this.login(email, password).then(
@@ -43,9 +43,9 @@ export class AuthService {
   }
 
   login(email: string, password: string) {
-    return new Promise((resolve, reject) => {
+    return new Promise<void>((resolve, reject) => {
       this.http.post(
-        'https://backendmanagementapp.herokuapp.com/api/auth/login',
+        'https://cvm-backend.herokuapp.com/api/login',
         { email: email, password: password })
         .subscribe(
           (authData: {  role:string,accessToken: string, userId: string }) => {
